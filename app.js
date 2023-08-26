@@ -48,7 +48,7 @@ app.use('*', (req, res) => {
 })
 
 
-//!Start Application
+//!Server Listening
 app.start = async () => {
     try {
         await ConnectDB()
