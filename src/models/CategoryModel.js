@@ -8,6 +8,12 @@ const DataSchema = new Schema({
         trim: true,
         unique: true
     },
+    slug: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true
+    },
     categoryImg: {
         type: String,
         required: true,

@@ -35,13 +35,6 @@ app.use(express.json({ limit: '5mb' }));
 readdirSync("./src/routes").map(r => app.use("/api/v1", require(`./src/routes/${r}`)));
 
 
-//!Managing front end routing
-app.use(express.static('client/dist'))
-app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'dist', 'index.html'))
-})
-
-
 //!Undifiend Route
 app.use('*', (req, res) => {
     res.json({ error: 'Not Found' })

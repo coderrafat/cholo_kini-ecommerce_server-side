@@ -1,9 +1,19 @@
 const { Schema, model } = require('mongoose');
 
-const { ObjectId } = Schema.ObjectId;
+const { ObjectId } = Schema;
 
 const DataSchema = new Schema({
 
+    category_id: {
+        type: ObjectId,
+        required: true,
+        ref: 'categories'
+    },
+    brand_id: {
+        type: ObjectId,
+        required: true,
+        ref: 'brands'
+    },
     title: {
         type: String,
         required: true,
@@ -13,13 +23,21 @@ const DataSchema = new Schema({
         type: String,
         required: true,
     },
+    slug: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true,
+    },
+    description: {
+        type: String,
+        required: true,
+        trim: true,
+        max: 2000
+    },
     price: {
         type: String,
         required: true,
-    },
-    discount: {
-        type: Boolean,
-        default: false
     },
     discount: {
         type: Boolean,
@@ -44,16 +62,6 @@ const DataSchema = new Schema({
     remark: {
         type: String,
         enum: ['new', 'top', 'trending', 'popular', 'special', 'regular']
-    },
-    category_id: {
-        type: ObjectId,
-        required: true,
-        ref: 'categories'
-    },
-    brand_id: {
-        type: ObjectId,
-        required: true,
-        ref: 'brands'
     }
 
 }, { timestamps: true, versionKey: false });
