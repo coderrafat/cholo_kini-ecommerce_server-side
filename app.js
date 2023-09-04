@@ -7,6 +7,10 @@ const port = process.env.PORT || 6000;
 const ConnectDB = require('./src/config/ConnectDB');
 
 
+//!Error handling
+const { CustomErrorHandler } = require('custom-error-handlers');
+
+
 //!Security middlewares import
 const rateLimit = require('express-rate-limit');
 const mongoSanitize = require('express-mongo-sanitize');
@@ -40,6 +44,7 @@ app.use('*', (req, res) => {
     res.json({ error: 'Not Found' })
 })
 
+app.use(CustomErrorHandler({ log: true }));
 
 //!Server Listening
 app.start = async () => {

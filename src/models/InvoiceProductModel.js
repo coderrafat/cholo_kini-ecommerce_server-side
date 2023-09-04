@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const { ObjectId } = Schema.ObjectId;
+const { ObjectId } = Schema;
 
 const DataSchema = new Schema({
 
