@@ -30,6 +30,10 @@ const DataSchema = new Schema({
         type: String,
         required: true
     },
+    total_price: {
+        type: String,
+        required: true
+    }
 
 }, { timestamps: true, versionKey: false });
 

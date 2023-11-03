@@ -37,6 +37,6 @@ const DataSchema = new Schema({
 
 }, { timestamps: true, versionKey: false });
 
-const CartModel = model('carts', DataSchema);
+const PaymentSettingModel = model('paymentSettings', DataSchema);
 
-module.exports = CartModel;
+module.exports = PaymentSettingModel;

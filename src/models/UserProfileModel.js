@@ -4,16 +4,17 @@ const { ObjectId } = Schema;
 
 const DataSchema = new Schema({
 
+    user_id: {
+        type: ObjectId,
+        required: true,
+        ref: 'users'
+    },
     cus_name: {
         type: String,
         required: true,
         trim: true,
     },
     cus_add: {
-        type: String,
-        required: true,
-    },
-    cus_city: {
         type: String,
         required: true,
     },
@@ -80,15 +81,10 @@ const DataSchema = new Schema({
     ship_phone: {
         type: String,
         required: true,
-    },
-    user_id: {
-        type: ObjectId,
-        required: true,
-        ref: 'users'
     }
 
 }, { timestamps: true, versionKey: false });
 
-const UserModel = model('users', DataSchema);
+const UserProfileModel = model('userProfiles', DataSchema);
 
-module.exports = UserModel;
+module.exports = UserProfileModel;

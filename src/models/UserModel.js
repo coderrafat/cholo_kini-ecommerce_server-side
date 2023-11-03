@@ -5,6 +5,7 @@ const DataSchema = new Schema({
     email: {
         type: String,
         required: true,
+        unique: true,
         trim: true,
         lowercase: true
     },
@@ -12,6 +13,13 @@ const DataSchema = new Schema({
         type: String,
         required: true,
     },
+    password: {
+        type: String,
+    },
+    role: {
+        type: String,
+        default: 'user'
+    }
 
 }, { timestamps: true, versionKey: false });
 
